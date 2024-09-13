@@ -16,7 +16,7 @@ function Home() {
     <> 
     <Layout>
       <div className='video vh-100' style={{filter: "brightness(75%)"}}> 
-        <img src="src\assets\roberto-nickson-MA82mPIZeGI-unsplash.jpg" alt="" className='img-fluid'/>
+      <img src="https://ak-d.tripcdn.com/images/0202q120008m1pn09B45C_R_1600_800_R5_Q70.webp" className ="img-fluid" alt="<h1>Hotels near Red Ruby in Bali</h1>"></img>
      </div>
       {/* <h1>Valid comment</h1> */}
      <Section1/>
