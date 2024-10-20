@@ -29,7 +29,7 @@ function Signup() {
 
     const handleSubmit = async (values, { setSubmitting }) => {
         try {
-            const response = await axios.post('http://localhost:8080/public/sign-up', {
+            const response = await axios.post('https://hotel-management-backend-hb27.onrender.com/public/sign-up', {
                 email: values.email,
                 password: values.password,
                 firstName: values.firstName,

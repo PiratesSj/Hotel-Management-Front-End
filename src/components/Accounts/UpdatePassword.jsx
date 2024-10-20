@@ -21,7 +21,7 @@ function UpdatePassword() {
 
     const handleSubmit = async (values, { setSubmitting }) => {
         try {
-            const response = await axios.put('http://localhost:8080/public/update-password', {
+            const response = await axios.put('https://hotel-management-backend-hb27.onrender.com/public/update-password', {
                 email: email, // Send the email along with the password
                 password: values.UpdatePassword
             });

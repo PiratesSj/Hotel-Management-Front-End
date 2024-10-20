@@ -24,7 +24,7 @@ function Admin() {
       const accessToken = localStorage.getItem('access');
       if (accessToken) {
         try {
-          const response = await fetch('http://localhost:8080/user/health-Check', {
+          const response = await fetch('https://hotel-management-backend-hb27.onrender.com/user/health-Check', {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + accessToken,

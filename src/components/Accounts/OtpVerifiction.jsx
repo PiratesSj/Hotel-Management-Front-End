@@ -43,7 +43,7 @@ function OtpVerification() {
     const handleResend = async () => {
         try {
             setErrorMessage(""); // Clear any previous error messages
-            const response = await axios.post('http://localhost:8080/public/resend-verificationCode',  email , {
+            const response = await axios.post('https://hotel-management-backend-hb27.onrender.com/public/resend-verificationCode',  email , {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -67,7 +67,7 @@ function OtpVerification() {
     const handleSubmit = async (values, { setSubmitting }) => {
         try {
             setErrorMessage(""); // Clear any previous error messages
-            const response = await axios.post('http://localhost:8080/public/verify', {
+            const response = await axios.post('https://hotel-management-backend-hb27.onrender.com/public/verify', {
                 otp: values.otp
             });
 

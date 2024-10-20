@@ -32,7 +32,7 @@ function PartnerJoin() {
     try {
      
   
-      const response = await axios.post(`http://localhost:8080/public/Register-partner`, {
+      const response = await axios.post(`https://hotel-management-backend-hb27.onrender.com/public/Register-partner`, {
         companyName: values.companyName,
         companyAddress: values.companyAddress,
         contactNumber: values.phone,
@@ -51,7 +51,7 @@ function PartnerJoin() {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post('http://localhost:8080/public/sign-up', {
+      const response = await axios.post('https://hotel-management-backend-hb27.onrender.com/public/sign-up', {
         email: values.email,
         password: values.password,
         firstName: values.firstName,

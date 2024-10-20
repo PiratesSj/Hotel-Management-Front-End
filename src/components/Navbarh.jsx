@@ -1,26 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Container, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link, useLocation } from "react-router-dom";
 import logo from '../assets/Logo.png';
+import { FaUser } from 'react-icons/fa';
+import { motion } from "framer-motion";  // For animations
 import userIcon from '../assets/favIcon/user-regular.svg';
 import "../index.css";
-import { FaUser} from 'react-icons/fa';
-import { Col, Row } from 'react-bootstrap';
 
 function Navbarh() {
   const [navbarClass, setNavbarClass] = useState('navbar-custom');
   const [isLogged, setIsLogged] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);  // Active item for hover effect
 
+  // Check login state
   useEffect(() => {
     const checkHealth = async () => {
       const accessToken = localStorage.getItem('access');
       if (accessToken) {
         try {
-          const response = await fetch('http://localhost:8080/user/health-Check', {
+          const response = await fetch('https://hotel-management-backend-hb27.onrender.com/user/health-Check', {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + accessToken,
@@ -44,6 +43,7 @@ function Navbarh() {
     checkHealth();
   });
 
+  // Navbar scroll effect
   const handleScroll = () => {
     if (window.scrollY >= 30) {
       setNavbarClass('navbar-custom navbar-scrolled');
@@ -82,26 +82,25 @@ function Navbarh() {
 
   const loggedcomp = (
     <Row className="d-flex align-items-center justify-content-center px-1">
-  <Col className="d-flex align-items-center p-0 m-0">
-    <div className='d-flex align-items-center'>
-      <FaUser className='text-white' />
-    </div>
-  </Col>
-  <Col className="d-flex align-items-center p-0 m-0">
-    <NavDropdown
-      title={localStorage.getItem('firstName')}
-      id="navbarScrollingDropdown"
-      className="custom-dropdown"
-    >
-      <NavDropdown.Item as={Link} to="/account">Account</NavDropdown.Item>
-      <NavDropdown.Item onClick={LogOut}>LogOut</NavDropdown.Item>
-    </NavDropdown>
-  </Col>
-</Row>
-
-
+      <Col className="d-flex align-items-center p-0 m-0">
+        <div className='d-flex align-items-center'>
+          <FaUser className='text-white' />
+        </div>
+      </Col>
+      <Col className="d-flex align-items-center p-0 m-0">
+        <NavDropdown
+          title={localStorage.getItem('firstName')}
+          id="navbarScrollingDropdown"
+          className="custom-dropdown"
+        >
+          <NavDropdown.Item as={Link} to="/account">Account</NavDropdown.Item>
+          <NavDropdown.Item onClick={LogOut}>LogOut</NavDropdown.Item>
+        </NavDropdown>
+      </Col>
+    </Row>
   );
 
+  // Replicating Tailwind's Menu Component in Bootstrap
   return (
     <Navbar collapseOnSelect expand="lg" className={`${navbarClass}`} fixed="top">
       <Container fluid>
@@ -115,20 +114,29 @@ function Navbarh() {
             />
           </div>
         </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="mb-1">
           <Nav className="me-auto text-white">
-            <NavDropdown
-              title="Services"
-              id="navbarScrollingDropdown"
-              className="custom-dropdown"
-            >
-              <NavDropdown.Item as={Link} to="/hotel">Hotel</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/restaurant">Restaurant</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
-            <Nav.Link as={Link} to="/about">About</Nav.Link>
+            {/* Dynamic menu items with hover effect */}
+            <motion.div className="nav-item" onMouseEnter={() => setActiveItem("Services")}>
+              <NavDropdown
+                title="Services"
+                id="navbarScrollingDropdown"
+                className="custom-dropdown"
+              >
+                <NavDropdown.Item as={Link} to="/hotel">Hotel</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/restaurant">Restaurant</NavDropdown.Item>
+              </NavDropdown>
+            </motion.div>
+            <motion.div className="nav-item" onMouseEnter={() => setActiveItem("Contact")}>
+              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+            </motion.div>
+            <motion.div className="nav-item" onMouseEnter={() => setActiveItem("About")}>
+              <Nav.Link as={Link} to="/about">About</Nav.Link>
+            </motion.div>
           </Nav>
+
           <Nav>
             {isLogged ? loggedcomp : logincomp}
             <Nav.Link as={Link} to="/booking">Booking</Nav.Link>

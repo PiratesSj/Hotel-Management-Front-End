@@ -57,7 +57,7 @@ function HotelSearch() {
 
   const fetchHotels = async (values) => {
     try {
-      const response = await axios.get(`http://localhost:8080/public/hotelsl/${values.location}`);
+      const response = await axios.get(`https://hotel-management-backend-hb27.onrender.com/public/hotelsl/${values.location}`);
       setData(response.data);
       setFilteredData(response.data); // Show the data as it is initially
     } catch (error) {

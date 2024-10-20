@@ -43,7 +43,7 @@ function ForgatePassword() {
 
     const handleSubmitEmailForm = async (values, { setSubmitting }) => {
         try {
-            const response = await axios.post('http://localhost:8080/public/resend-verificationCode', JSON.stringify(values.email), {
+            const response = await axios.post('https://hotel-management-backend-hb27.onrender.com/public/resend-verificationCode', JSON.stringify(values.email), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -61,7 +61,7 @@ function ForgatePassword() {
 
     const handleSubmit = async (values, { setSubmitting }) => {
         try {
-            const response = await axios.post('http://localhost:8080/public/verify', {
+            const response = await axios.post('https://hotel-management-backend-hb27.onrender.com/public/verify', {
                 otp: values.otp
             });
 

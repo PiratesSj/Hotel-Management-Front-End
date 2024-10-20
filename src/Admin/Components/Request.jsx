@@ -8,7 +8,7 @@ function Request() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/admin/get-All-Requests', {
+        const response = await axios.get('https://hotel-management-backend-hb27.onrender.com/admin/get-All-Requests', {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('access')}`,
@@ -32,7 +32,7 @@ function Request() {
   const handleAccept = async (type, requestId) => {
     try {
       const response = await axios.post(
-        `http://localhost:8080/admin/accept-Request/${type}/${requestId}`,
+        `https://hotel-management-backend-hb27.onrender.com/admin/accept-Request/${type}/${requestId}`,
         {},
         {
           headers: {
@@ -52,7 +52,7 @@ function Request() {
   const handleDeny = async (type, requestId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/admin/deny-Request/${type}/${requestId}`,
+        `https://hotel-management-backend-hb27.onrender.com/admin/deny-Request/${type}/${requestId}`,
         {
           headers: {
             'Content-Type': 'application/json',

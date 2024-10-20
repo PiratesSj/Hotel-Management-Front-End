@@ -24,7 +24,7 @@ function Partner() {
       if (!localStorage.getItem('partnerId')) {
         try {
           const roleResponse = await axios.get(
-            `http://localhost:8080/partner/getPartnerDetailByUserId/${localStorage.getItem('userId')}`,
+            `https://hotel-management-backend-hb27.onrender.com/partner/getPartnerDetailByUserId/${localStorage.getItem('userId')}`,
             {
               headers: {
                 'Content-Type': 'application/json',

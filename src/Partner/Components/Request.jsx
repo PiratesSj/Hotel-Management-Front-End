@@ -13,7 +13,7 @@ const Request = () => {
     console.log('Hotel submission triggered with values:', values); // Debugging log
     try {
       const response = await axios.post(
-        `http://localhost:8080/partner/create-hotel/id/${localStorage.getItem('partnerId')}`,
+        `https://hotel-management-backend-hb27.onrender.com/partner/create-hotel/id/${localStorage.getItem('partnerId')}`,
         values, {
           headers: {
             'Content-Type': 'application/json',

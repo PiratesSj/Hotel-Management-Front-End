@@ -39,7 +39,7 @@ const CheckoutForm = ({ hotel, room, formData }) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8080/api/checkout', {
+      const response = await axios.post('https://hotel-management-backend-hb27.onrender.com/api/checkout', {
         paymentMethodId: paymentMethod.id,
         hotel,
         room,

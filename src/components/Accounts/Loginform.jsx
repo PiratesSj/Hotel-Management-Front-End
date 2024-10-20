@@ -22,7 +22,7 @@ function Loginform() {
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
-      const response = await axios.post('http://localhost:8080/public/log-in', {
+      const response = await axios.post('https://hotel-management-backend-hb27.onrender.com/public/log-in', {
         userName: values.email,
         password: values.password,
       });
@@ -32,7 +32,7 @@ function Loginform() {
         localStorage.setItem('email', values.email);
         
 
-        const roleResponse = await axios.get(`http://localhost:8080/user/get-detail/${values.email}`, {
+        const roleResponse = await axios.get(`https://hotel-management-backend-hb27.onrender.com/user/get-detail/${values.email}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('access'),

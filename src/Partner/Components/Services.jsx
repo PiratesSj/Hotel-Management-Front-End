@@ -34,7 +34,7 @@ function Services() {
     const fetchData = async () => {
       try {
         if (serviceMenu === 'Hotel') {
-          const response = await axios.get(`http://localhost:8080/partner/get-all-hotel/${localStorage.getItem("partnerId")}`, {
+          const response = await axios.get(`https://hotel-management-backend-hb27.onrender.com/partner/get-all-hotel/${localStorage.getItem("partnerId")}`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -48,7 +48,7 @@ function Services() {
           
         } 
         else if (serviceMenu === 'Restaurant') {
-          const response = await axios.get(`http://localhost:8080/partner/get-all-Restaurant/${localStorage.getItem("partnerId")}`, {
+          const response = await axios.get(`https://hotel-management-backend-hb27.onrender.com/partner/get-all-Restaurant/${localStorage.getItem("partnerId")}`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -60,7 +60,7 @@ function Services() {
           }
         } 
         else if (serviceMenu === 'Yacht') {
-          const response = await axios.get(`http://localhost:8080/partner/get-all-yacht/${localStorage.getItem("partnerId")}`, {
+          const response = await axios.get(`https://hotel-management-backend-hb27.onrender.com/partner/get-all-yacht/${localStorage.getItem("partnerId")}`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -72,7 +72,7 @@ function Services() {
           setIsLoading(false);
         }
         else if (serviceMenu === 'PrivateJet') {
-          const response = await axios.get(`http://localhost:8080/partner/get-all-privateJet/${localStorage.getItem("partnerId")}`, {
+          const response = await axios.get(`https://hotel-management-backend-hb27.onrender.com/partner/get-all-privateJet/${localStorage.getItem("partnerId")}`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -96,7 +96,7 @@ function Services() {
    // Update functions (API placeholders)
    const updateHotel = async (values) => {
     try {
-      await axios.put(`http://localhost:8080/partner/update-hotel/id/${values.id}`, values, {
+      await axios.put(`https://hotel-management-backend-hb27.onrender.com/partner/update-hotel/id/${values.id}`, values, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -112,7 +112,7 @@ function Services() {
 
   const updateRestaurant = async (values) => {
     try {
-      await axios.put(`http://localhost:8080/partner/update-restaurant/id/${values.id}`, values, {
+      await axios.put(`https://hotel-management-backend-hb27.onrender.com/partner/update-restaurant/id/${values.id}`, values, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -128,7 +128,7 @@ function Services() {
 
   const updateYacht = async (values) => {
     try {
-      await axios.put(`http://localhost:8080/partner/update-yacht/id/${values.id}`, values, {
+      await axios.put(`https://hotel-management-backend-hb27.onrender.com/partner/update-yacht/id/${values.id}`, values, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -144,7 +144,7 @@ function Services() {
 
   const updatePrivateJet = async (values) => {
     try {
-      await axios.put(`http://localhost:8080/partner/update-private-jet/id/${values.id}`, values, {
+      await axios.put(`https://hotel-management-backend-hb27.onrender.com/partner/update-private-jet/id/${values.id}`, values, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -163,7 +163,7 @@ function Services() {
     // Implement your delete logic here
     console.log("Delete Hotel:", selectedHotel);
     try {
-      await axios.delete(`http://localhost:8080/partner/delete-hotel/id//${selectedHotel.id}`, {
+      await axios.delete(`https://hotel-management-backend-hb27.onrender.com/partner/delete-hotel/id//${selectedHotel.id}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -181,7 +181,7 @@ function Services() {
     // Implement your delete logic here
     console.log("Delete Restaurant:", selectedRestaurant);
     try {
-      await axios.delete(`http://localhost:8080/partner/delete-restaurant/id/${selectedRestaurant.id}`, {
+      await axios.delete(`https://hotel-management-backend-hb27.onrender.com/partner/delete-restaurant/id/${selectedRestaurant.id}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -199,7 +199,7 @@ function Services() {
     // Implement your delete logic here
     console.log("Delete Yacht:", selectedYacht);
     try {
-      await axios.delete(`http://localhost:8080/partner/delete-yacht/id/${selectedYacht.id}`, {
+      await axios.delete(`https://hotel-management-backend-hb27.onrender.com/partner/delete-yacht/id/${selectedYacht.id}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -218,7 +218,7 @@ function Services() {
     // Implement your delete logic here
     console.log("Delete Private Jet:", selectedPrivateJet);
     try {
-      await axios.delete(`http://localhost:8080/partner/delete-privatejet/${selectedPrivateJet.id}`, {
+      await axios.delete(`https://hotel-management-backend-hb27.onrender.com/partner/delete-privatejet/${selectedPrivateJet.id}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -379,7 +379,7 @@ function Services() {
       })}
       onSubmit={async (values) => {
         try {
-          await axios.post(`http://localhost:8080/partner/create-restaurant/${selectedHotel.id}/${localStorage.getItem('partnerId')}`, values, {
+          await axios.post(`https://hotel-management-backend-hb27.onrender.com/partner/create-restaurant/${selectedHotel.id}/${localStorage.getItem('partnerId')}`, values, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + localStorage.getItem('access'),
@@ -453,7 +453,7 @@ function Services() {
       })}
       onSubmit={async (values) => {
         try {
-          await axios.post(`http://localhost:8080/partner/create-room/${selectedHotel.id}`, values, {
+          await axios.post(`https://hotel-management-backend-hb27.onrender.com/partner/create-room/${selectedHotel.id}`, values, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + localStorage.getItem('access'),
